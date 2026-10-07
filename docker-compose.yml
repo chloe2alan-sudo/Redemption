@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      ADMIN_TOKEN: ${ADMIN_TOKEN}
+      POSTS_PER_RUN: 50
+    volumes:
+      - ./data:/app/data

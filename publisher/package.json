@@ -1,0 +1,7 @@
+{
+  "name": "redemption-hackers-daily-publisher",
+  "private": true,
+  "type": "module",
+  "scripts": {"run": "node worker.js"},
+  "dependencies": {"openai": "^4.79.0"}
+}

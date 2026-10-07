@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Article | Redemption Hackers</title><style>
+body{margin:0;background:#080b10;color:#edf2f7;font-family:Inter,Arial,sans-serif}.wrap{max-width:820px;margin:auto;padding:55px 7%}.muted{color:#9eabb7}.content{font-size:18px;line-height:1.8}.content h2{margin-top:35px}.back{color:#67e8f9;text-decoration:none}
+</style></head><body><main class="wrap"><a class="back" href="/blog.html">← Back to blog</a><div id="article">Loading…</div></main><script>
+const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const format=s=>esc(s).split(/\n{2,}/).map(x=>'<p>'+x.replace(/\n/g,'<br>')+'</p>').join('');
+(async()=>{const slug=new URLSearchParams(location.search).get('slug');if(!slug)return;const r=await fetch('/api/posts/'+encodeURIComponent(slug));const p=await r.json();if(!r.ok){document.querySelector('#article').textContent='Article not found';return}document.title=p.title+' | Redemption Hackers';document.querySelector('#article').innerHTML='<p class="muted">'+esc(p.category)+' · '+new Date(p.published_at).toLocaleDateString()+'</p><h1>'+esc(p.title)+'</h1><p class="muted">'+esc(p.seo_description)+'</p><div class="content">'+format(p.content)+'</div>'})()
+</script><!-- Tawk.to Live Chat -->
+<script>
+  window.TAWK_CHAT_ID = window.TAWK_CHAT_ID || "YOUR_PROPERTY_ID/YOUR_WIDGET_ID";
+  if (window.TAWK_CHAT_ID && !window.TAWK_CHAT_ID.startsWith("YOUR_")) {
+    var Tawk_API = window.Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true; s1.src="https://embed.tawk.to/"+window.TAWK_CHAT_ID;
+      s1.charset="UTF-8"; s1.setAttribute("crossorigin","*");
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  }
+</script>
+<!-- End Tawk.to Live Chat -->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6ac5b250cc4acf34c88114ab/1k4a41367';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body></html>

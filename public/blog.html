@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blog | Redemption Hackers</title><meta name="description" content="Practical cryptocurrency recovery, blockchain tracing, scam prevention and evidence guidance."><style>
+body{margin:0;background:#080b10;color:#edf2f7;font-family:Inter,Arial,sans-serif}header{padding:55px 7%;border-bottom:1px solid #202a35}a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:auto;padding:45px 7%}.tools{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}input,select{padding:13px;border-radius:8px;border:1px solid #2a3541;background:#111720;color:white}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}.card{padding:23px;border:1px solid #202a35;border-radius:14px;background:#111720}.cat{color:#67e8f9;font-size:13px;font-weight:700}.muted{color:#9eabb7;line-height:1.65}.more{display:inline-block;margin-top:10px;color:#67e8f9;font-weight:700}</style></head><body>
+<header><a href="/">← Redemption Hackers</a><h1>Recovery & Blockchain Blog</h1><p class="muted">Education on blockchain tracing, scam prevention, evidence and lawful recovery options.</p></header>
+<main class="wrap"><div class="tools"><input id="q" placeholder="Search articles…"><select id="cat"><option value="">All categories</option></select></div><div id="posts" class="grid"></div></main>
+<script>
+const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function load(){const q=encodeURIComponent(document.querySelector('#q').value),c=encodeURIComponent(document.querySelector('#cat').value);const r=await fetch('/api/posts?limit=100&q='+q+'&category='+c);const d=await r.json();const el=document.querySelector('#posts');el.innerHTML=d.posts.length?d.posts.map(p=>`<article class="card"><div class="cat">${esc(p.category)}</div><h2>${esc(p.title)}</h2><p class="muted">${esc(p.seo_description)}</p><a class="more" href="/article.html?slug=${encodeURIComponent(p.slug)}">Read article →</a></article>`).join(''):'<p>No articles found.</p>'; }
+async function cats(){const r=await fetch('/api/posts?limit=100');const d=await r.json();[...new Set(d.posts.map(p=>p.category))].sort().forEach(c=>document.querySelector('#cat').insertAdjacentHTML('beforeend',`<option>${esc(c)}</option>`));}
+document.querySelector('#q').addEventListener('input',load);document.querySelector('#cat').addEventListener('change',load);cats().then(load);
+</script><!-- Tawk.to Live Chat -->
+<script>
+  window.TAWK_CHAT_ID = window.TAWK_CHAT_ID || "YOUR_PROPERTY_ID/YOUR_WIDGET_ID";
+  if (window.TAWK_CHAT_ID && !window.TAWK_CHAT_ID.startsWith("YOUR_")) {
+    var Tawk_API = window.Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true; s1.src="https://embed.tawk.to/"+window.TAWK_CHAT_ID;
+      s1.charset="UTF-8"; s1.setAttribute("crossorigin","*");
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  }
+</script>
+<!-- End Tawk.to Live Chat -->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6ac5b250cc4acf34c88114ab/1k4a41367';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body></html>

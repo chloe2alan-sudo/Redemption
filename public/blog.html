@@ -7,20 +7,8 @@ const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 async function load(){const q=encodeURIComponent(document.querySelector('#q').value),c=encodeURIComponent(document.querySelector('#cat').value);const r=await fetch('/api/posts?limit=100&q='+q+'&category='+c);const d=await r.json();const el=document.querySelector('#posts');el.innerHTML=d.posts.length?d.posts.map(p=>`<article class="card"><div class="cat">${esc(p.category)}</div><h2>${esc(p.title)}</h2><p class="muted">${esc(p.seo_description)}</p><a class="more" href="/article.html?slug=${encodeURIComponent(p.slug)}">Read article →</a></article>`).join(''):'<p>No articles found.</p>'; }
 async function cats(){const r=await fetch('/api/posts?limit=100');const d=await r.json();[...new Set(d.posts.map(p=>p.category))].sort().forEach(c=>document.querySelector('#cat').insertAdjacentHTML('beforeend',`<option>${esc(c)}</option>`));}
 document.querySelector('#q').addEventListener('input',load);document.querySelector('#cat').addEventListener('change',load);cats().then(load);
-</script><!-- Tawk.to Live Chat -->
-<script>
-  window.TAWK_CHAT_ID = window.TAWK_CHAT_ID || "YOUR_PROPERTY_ID/YOUR_WIDGET_ID";
-  if (window.TAWK_CHAT_ID && !window.TAWK_CHAT_ID.startsWith("YOUR_")) {
-    var Tawk_API = window.Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true; s1.src="https://embed.tawk.to/"+window.TAWK_CHAT_ID;
-      s1.charset="UTF-8"; s1.setAttribute("crossorigin","*");
-      s0.parentNode.insertBefore(s1,s0);
-    })();
-  }
 </script>
-<!-- End Tawk.to Live Chat -->
+
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
